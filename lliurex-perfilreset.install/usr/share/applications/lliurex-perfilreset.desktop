@@ -1,0 +1,22 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=LliureX Perfilreset 
+Name[es]=Lliurex Pefilreset
+Name[qcv]=Lliurex Perfilreset
+Name[ca_ES@valencia]=Lliurex Perfilreset
+Name[ca_ES.UTF-8@valencia]=Lliurex Perfilreset
+TryExec=/usr/sbin/lliurex-perfilreset-gui
+Comment=Reset the desktop profile to LliureX default
+Comment[qcv]=Reinicialitza l'escriptori per a deixar-lo en el format de LliureX per defecte.
+Comment[ca_ES@valencia]=Reinicialitza l'escriptori per a deixar-lo en el format de LliureX per defecte.
+Comment[ca_ES.UTF-8@valencia]=Reinicialitza l'escriptori per a deixar-lo en el format de LliureX per defecte.
+Comment[ca_ES]=Reinicialitza l'escriptori per a deixar-lo en el format de LliureX per defecte.
+Comment[es]=Resetea el escritorio dejándolo en el formato de LliureX por defecto.
+StartupNotify=true
+Exec=/usr/sbin/lliurex-perfilreset-gui
+Icon=/usr/share/lliurex-perfilreset/rsrc/lliurex-perfilreset-icon.svg
+Terminal=false
+Type=Application
+X-GNOME-Settings-Panel=lliurex-perfilreset
+X-Unity-Settings-Panel=lliurex-perfilreset
+Categories=GTK;System;Filesystem;LliureX-Administration;

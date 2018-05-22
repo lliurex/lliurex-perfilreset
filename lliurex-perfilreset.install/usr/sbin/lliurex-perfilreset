@@ -1,0 +1,32 @@
+#! /usr/bin/python3
+
+import sys
+import os
+import os.path
+import shutil
+
+
+#print ("inicio")
+
+cmd='dconf reset -f /'
+skel_panel='/etc/skel/.config/xfce4/panel'
+
+home_path=os.path.expanduser('~')
+local_panel=home_path+'/.config/xfce4/panel'
+
+def copy_and_overwrite(from_path, to_path):
+    if os.path.exists(to_path):
+        shutil.rmtree(to_path)
+    shutil.copytree(from_path, to_path)
+#def copy_and_overwrite
+
+#Restore Desktop profile
+os.system(cmd)
+
+#Restore Main LliureX Menu
+if os.path.isdir(skel_panel):
+	print('Copy skel from %s to %s' %(skel_panel,local_panel))
+	copy_and_overwrite(skel_panel, local_panel)
+
+#print ("FIN")
+	
