@@ -1,0 +1,23 @@
+lliurex-perfilreset (1.0) bionic; urgency=medium
+
+  * KDE port
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Thu, 14 Mar 2019 11:45:38 +0100
+
+lliurex-perfilreset (0.3) xenial; urgency=high
+
+  * Change window title
+
+ -- Daniel Duran Vecino <daduve@gmail.com>  Wed, 25 Apr 2018 10:13:39 +0200
+
+lliurex-perfilreset (0.2) xenial; urgency=high
+
+  * Adding translations 
+
+ -- Daniel Duran Vecino <daduve@gmail.com>  Wed, 21 Mar 2018 13:35:26 +0100
+
+lliurex-perfilreset (0.1) xenial; urgency=high
+
+  * Initial release.
+
+ -- Daniel Duran Vecino <daduve@gmail.com>  Fri, 05 Sep 2014 12:46:16 +0200
