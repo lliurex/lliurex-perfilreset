@@ -6,6 +6,7 @@ import os.path
 import shutil
 import glob
 import subprocess
+import time
 
 debug=True
 
@@ -63,5 +64,5 @@ shutil.copy("/etc/xdg/lliurex/desktop/kdeglobals","%s/.config/kdeglobals"%home_p
 
 #restart plasma
 subprocess.run(["/usr/bin/kstart5","plasmashell"])
-
+time.sleep(3)
 
