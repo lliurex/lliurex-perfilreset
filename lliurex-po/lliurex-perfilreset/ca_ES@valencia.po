@@ -7,25 +7,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-21 13:30+0100\n"
-"PO-Revision-Date: 2018-03-21 13:33+0100\n"
+"POT-Creation-Date: 2019-03-14 11:55+0100\n"
+"PO-Revision-Date: 2019-03-14 11:57+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: ca_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
-"Last-Translator: \n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: ca_ES\n"
 
-#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/rsrc/lliurex-perfilreset.ui:19
-msgid "Lliurex Shutdowner"
-msgstr ""
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/rsrc/lliurex-perfilreset.ui:27
+msgid "Reset profile"
+msgstr "Restablir perfil"
 
-#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/rsrc/lliurex-perfilreset.ui:41
-msgid "Resetear Perfil Gráfico"
-msgstr "Reinicialitza l'escriptori per a deixar-lo en el format de LliureX per defecte."
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:85
+msgid "Resetting profile..."
+msgstr "Restablint perfil..."
 
-#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/rsrc/lliurex-perfilreset.ui:64
-msgid "Close"
-msgstr "Ix"
+#~ msgid "Resetear Perfil Gráfico"
+#~ msgstr "Reinicialitza l'escriptori per a deixar-lo en el format de LliureX per defecte."
+
+#~ msgid "Close"
+#~ msgstr "Ix"
