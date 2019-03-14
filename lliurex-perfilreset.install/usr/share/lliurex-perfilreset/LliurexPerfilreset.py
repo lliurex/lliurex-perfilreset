@@ -110,7 +110,7 @@ class LliurexPerfilreset:
 	def reset_button_clicked(self,widget):
 		spinner = Spinner()
 		spinner.start()
-		subprocess.call("/usr/share/lliurex-perfilreset/libperfilreset 1", shell=True)
+		subprocess.call("/usr/share/lliurex-perfilreset/perfilreset_helper.py 1", shell=True)
 #		os.system("pkill mate-panel")
 		time.sleep(3)
 		spinner.stop()
