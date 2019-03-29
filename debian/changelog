@@ -1,3 +1,9 @@
+lliurex-perfilreset (1.1) bionic; urgency=medium
+
+  * Adding sudo group
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 29 Mar 2019 13:44:44 +0100
+
 lliurex-perfilreset (1.0) bionic; urgency=medium
 
   * KDE port
