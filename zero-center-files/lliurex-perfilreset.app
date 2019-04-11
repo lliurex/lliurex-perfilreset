@@ -7,6 +7,6 @@ Comment[es]=Se restaura el perfil de escritorio asi como el menú principal
 Comment[qcv]=Se restaura el perfil de escritorio asi como el menú principal
 Icon=lliurex-perfilreset
 Groups=admins;sudo;teachers;students
-Category=Software
+Category=Configuration
 ScriptPath=lliurex-perfilreset.zmd
 
