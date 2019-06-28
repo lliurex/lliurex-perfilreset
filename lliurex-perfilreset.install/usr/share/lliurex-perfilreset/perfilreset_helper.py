@@ -8,11 +8,27 @@ import glob
 import subprocess
 import time
 
-debug=True
+debug=False
+color_scheme="/usr/share/color-schemes/lliurex.colors"
+home_path="%s/%s"%(os.environ['HOME'],".config")
+kdeglobals="%s/kdeglobals"%home_path
 
 def _debug(msg):
 	if debug:
 		print("dbg: %s"%msg)
+
+def _copy_tree(path,dst):
+	_debug("Read %s"%path)
+	if not(os.path.isdir(dst)):
+		_debug("Mkdir %s"%dst)
+		os.makedirs(dst)
+	for conf in os.listdir(path):
+		confpath="%s/%s"%(path,conf)
+		if os.path.isdir(confpath):
+			_copy_tree(confpath,dst+"/"+conf)
+		else:
+			_debug("Copy %s"%confpath)
+			shutil.copy(confpath,"%s/"%dst)
 
 def delete_item(item):
 	if os.path.isdir(item):
@@ -37,7 +53,6 @@ def delete_glob(file_glob):
 subprocess.run(["/usr/bin/kquitapp5","plasmashell"])
 
 #Remove all kde config
-home_path=os.path.expanduser('~')
 kde_files=[]
 for item in ["plasmashell*","org.kde.dirmodel-qml.kcache","kioexec","krunner","ksycoca5*","krunnerbookmarkrunnerfirefoxdbfile.sqlite"]:
 	kde_files.append("%s/.cache/%s"%(home_path,item))
@@ -58,9 +73,13 @@ for item in kde_files:
 		delete_item(item)
 
 #restore default configs
-
-shutil.copy("/etc/xdg/lliurex/desktop/kwinrc","%s/.config/kwinrc"%home_path)
-shutil.copy("/etc/xdg/lliurex/desktop/kdeglobals","%s/.config/kdeglobals"%home_path)
+_copy_tree("/etc/xdg/lliurex/desktop",home_path)
+#Set color scheme
+if os.path.isfile(color_scheme):
+	with open (color_scheme,'r') as f:
+		f_contents=f.readlines()
+	with open (kdeglobals,'a') as f:
+		f.writelines(f_contents)
 
 #restart plasma
 subprocess.run(["/usr/bin/kstart5","plasmashell"])
