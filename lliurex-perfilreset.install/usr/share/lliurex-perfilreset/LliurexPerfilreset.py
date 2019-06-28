@@ -70,6 +70,7 @@ class LliurexPerfilreset:
 		builder.set_translation_domain('lliurex-perfilreset')
 		builder.add_from_file("/usr/share/lliurex-perfilreset/rsrc/lliurex-perfilreset.ui")
 		self.main_window=builder.get_object("main_window")
+		self.main_window.set_resizable(False)
 		self.main_window.set_icon_from_file('/usr/share/lliurex-perfilreset/rsrc/lliurex-perfilreset-icon.svg')
 		self._set_css_info()
 		
