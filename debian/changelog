@@ -1,3 +1,9 @@
+lliurex-perfilreset (1.4) bionic; urgency=medium
+
+  * Disable window resizing
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Fri, 28 Jun 2019 12:13:13 +0200
+
 lliurex-perfilreset (1.3) bionic; urgency=medium
 
   * Fix color scheme
