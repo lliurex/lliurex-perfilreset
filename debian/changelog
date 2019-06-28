@@ -1,3 +1,9 @@
+lliurex-perfilreset (1.3) bionic; urgency=medium
+
+  * Fix color scheme
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Fri, 28 Jun 2019 12:08:13 +0200
+
 lliurex-perfilreset (1.2) bionic; urgency=medium
 
   * Fixed categorization to zero-center
