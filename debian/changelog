@@ -1,3 +1,9 @@
+lliurex-perfilreset (1.5) bionic; urgency=medium
+
+  * Add ca@valencia translations
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Fri, 26 Jul 2019 11:17:21 +0200
+
 lliurex-perfilreset (1.4) bionic; urgency=medium
 
   * Disable window resizing
