@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 11:55+0100\n"
+"POT-Creation-Date: 2019-10-02 11:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,18 @@ msgstr ""
 msgid "Reset profile"
 msgstr ""
 
-#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:85
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:88
 msgid "Resetting profile..."
+msgstr ""
+
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:156
+msgid "You must restart the session to end the process"
+msgstr ""
+
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:215
+#, python-format
+msgid ""
+"%s open terminals have been detected.\n"
+"In order for the terminal configuration to be restored they must be\n"
+"closed before starting the process"
 msgstr ""

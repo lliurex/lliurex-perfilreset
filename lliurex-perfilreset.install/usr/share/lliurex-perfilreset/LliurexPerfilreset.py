@@ -14,7 +14,7 @@ import subprocess
 import os
 
 signal.signal(signal.SIGINT, signal.SIG_DFL)
-gettext.textdomain('lliurex-pefilreset')
+gettext.textdomain('lliurex-perfilreset')
 _ = gettext.gettext
 
 import time
@@ -73,10 +73,12 @@ class LliurexPerfilreset:
 		self.main_window.set_resizable(False)
 		self.main_window.set_icon_from_file('/usr/share/lliurex-perfilreset/rsrc/lliurex-perfilreset-icon.svg')
 		self._set_css_info()
-		
+		self.main_window.set_name("WINDOW")
 		self.main_box=builder.get_object("main_box")
 		
 		self.close_button=builder.get_object("close_button")
+		self.msg_label=builder.get_object("msg_label")
+		self.msg_label.set_name("MSG_LABEL")
 		self.reset_button=builder.get_object("reset_button")
 		
 		self.reveal=Gtk.Revealer()
@@ -94,6 +96,9 @@ class LliurexPerfilreset:
 		
 		self.connect_signals()
 		self.main_window.show_all()
+		self.msg_label.hide()
+		self.lock_quit=False
+		self.detect_konsole()
 		
 	#def start_gui
 	
@@ -101,7 +106,7 @@ class LliurexPerfilreset:
 	def connect_signals(self):
 		
 		self.main_window.connect("destroy",Gtk.main_quit)
-		
+		self.main_window.connect("delete_event",self.unable_quit)
 		self.close_button.connect("clicked",self.close_button_clicked)
 		self.reset_button.connect("clicked",self.reset_button_clicked)
 		
@@ -121,6 +126,8 @@ class LliurexPerfilreset:
 	def reset_button_clicked(self,widget):
 
 		self.reset_button.set_sensitive(False)
+		self.lock_quit=True
+		self.msg_label.set_text("")
 		spinner = Spinner()
 		spinner.start()
 		self.retcode=None
@@ -145,6 +152,10 @@ class LliurexPerfilreset:
 			return True
 		self.reveal.set_reveal_child(False)
 		self.reset_button.set_sensitive(True)
+		self.lock_quit=False
+		self.msg_label.set_text(_("You must restart the session to end the process"))
+		self.msg_label.show()
+
 		return False
 	
 	def _set_css_info(self):
@@ -155,12 +166,24 @@ class LliurexPerfilreset:
 			font-family: Roboto;
 		}
 
+		#WINDOW{
+		
+		background-color: #ffffff;
+		
+		}
+
 		#NOTIF_LABEL{
 			background: #3366cc;
 			font: 11px Roboto;
 			color:white;
 			border: dashed 1px silver;
 			padding:6px;
+		}
+
+		#MSG_LABEL {
+			color: #24478f;
+			font: 11pt Roboto Bold;
+
 		}
 
 		#WHITE_BACKGROUND {
@@ -174,6 +197,35 @@ class LliurexPerfilreset:
 		self.style_provider.load_from_data(css)
 		Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),self.style_provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 	#def set_css_info	
+
+	def detect_konsole(self):
+
+		cmd='ps -ef | grep "konsole" | grep -v "grep"'
+		p=subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
+		data=p.communicate()[0]
+
+		if type(data) is bytes:
+			result=data.decode()
+		else:
+			result=data
+		isrunning= [ x.strip() for x in result.split('\n') ]
+		isrunning.pop()
+		count=len(isrunning)
+		if count>0:
+			msg_alert=(_("%s open terminals have been detected.\nIn order for the terminal configuration to be restored they must be\nclosed before starting the process")%count)
+			self.msg_label.set_text(msg_alert)
+			self.msg_label.show()
+
+	#def detect_konsole
+	
+	def unable_quit(self,widget,event):
+
+		if self.lock_quit:
+			return True
+		else:	
+			return False
+			
+	#def unable_quit		
 	
 #class LliurexPerfilreset
 
