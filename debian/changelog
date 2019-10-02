@@ -1,3 +1,10 @@
+lliurex-perfilreset (1.6) bionic; urgency=medium
+
+  * Fixed valencian translations
+  * Fixed reset process
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 02 Oct 2019 14:19:45 +0200
+
 lliurex-perfilreset (1.5) bionic; urgency=medium
 
   * Add ca@valencia translations
