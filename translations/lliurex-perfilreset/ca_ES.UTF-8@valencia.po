@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 11:55+0100\n"
-"PO-Revision-Date: 2019-03-14 11:57+0100\n"
+"POT-Creation-Date: 2019-10-02 11:55+0200\n"
+"PO-Revision-Date: 2019-10-02 12:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca_ES\n"
@@ -22,9 +22,24 @@ msgstr ""
 msgid "Reset profile"
 msgstr "Restablir perfil"
 
-#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:85
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:88
 msgid "Resetting profile..."
 msgstr "Restablint perfil..."
+
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:156
+msgid "You must restart the session to end the process"
+msgstr "Ha de reiniciar la sessió per a completar el procés"
+
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:215
+#, python-format
+msgid ""
+"%s open terminals have been detected.\n"
+"In order for the terminal configuration to be restored they must be\n"
+"closed before starting the process"
+msgstr ""
+"S'ha detectat %s terminal(s) obertes.\n"
+"Perquè també es restaure la configuració de la terminal han de ser\n"
+"tancades abans d'iniciar el procés"
 
 #~ msgid "Resetear Perfil Gráfico"
 #~ msgstr "Reinicialitza l'escriptori per a deixar-lo en el format de LliureX per defecte."

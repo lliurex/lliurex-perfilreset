@@ -10,8 +10,8 @@ import time
 
 debug=False
 color_scheme="/usr/share/color-schemes/lliurex.colors"
-home_path="%s/%s"%(os.environ['HOME'],".config")
-kdeglobals="%s/kdeglobals"%home_path
+home_path="%s"%(os.environ['HOME'])
+#kdeglobals="%s/kdeglobals"%home_path
 
 def _debug(msg):
 	if debug:
@@ -47,6 +47,37 @@ def delete_glob(file_glob):
 		delete_item(item)
 #def delete_glob
 
+def copy_skel_files():
+	
+	try:
+		# Resetting kconsole config
+		file_to_copy="/etc/skel/.local/share/konsole/lliurex.profile"
+		dest_path=home_path+"/.local/share/konsole/"
+		if not os.path.exists(dest_path):
+			try:
+				os.mkdir(dest_path)
+			except Exception as e:
+				debug_msg="Error creating %s"%dest_path+". Error:%s"%str(e)
+				_debug(debug_msg)
+				pass
+		
+		shutil.copy(file_to_copy,dest_path)
+		
+		file_to_remove=home_path+"/.config/konsolerc"
+		if os.path.exists(file_to_remove):
+			os.remove(file_to_remove)
+		
+		#Resetting ballofilerc
+		file_to_copy="/etc/skel/.config/baloofilerc"
+		dest_path=home_path+"/.config/"
+		shutil.copy(file_to_copy,dest_path)
+		
+	except Exception as e:
+
+		debug_msg="Error coping skel files %s"%str(e)
+		_debug(debug_msg)
+		pass
+
 ###MAIN
 
 #Quit plasmashell
@@ -72,16 +103,21 @@ for item in kde_files:
 	else:
 		delete_item(item)
 
+#Restore some files of skel
+copy_skel_files()
+
+'''
 #restore default configs
 _copy_tree("/etc/xdg/lliurex/desktop",home_path)
+
 #Set color scheme
 if os.path.isfile(color_scheme):
 	with open (color_scheme,'r') as f:
 		f_contents=f.readlines()
 	with open (kdeglobals,'a') as f:
 		f.writelines(f_contents)
-
+'''
 #restart plasma
 subprocess.run(["/usr/bin/kstart5","plasmashell"])
-time.sleep(3)
+time.sleep(60)
 
