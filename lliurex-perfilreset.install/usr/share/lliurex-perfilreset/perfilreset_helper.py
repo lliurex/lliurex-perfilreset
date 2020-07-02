@@ -117,6 +117,8 @@ if os.path.isfile(color_scheme):
 	with open (kdeglobals,'a') as f:
 		f.writelines(f_contents)
 '''
+#reset dconf
+subprocess.run(["dconf","reset","-f","/"])
 #restart plasma
 subprocess.run(["/usr/bin/kstart5","plasmashell"])
 time.sleep(60)
