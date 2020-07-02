@@ -1,3 +1,9 @@
+lliurex-perfilreset (1.7) bionic; urgency=medium
+
+  * Add dconf reset
+
+ -- Juanma1980 <juanma1980@gmail.com>  Thu, 02 Jul 2020 16:03:13 +0200
+
 lliurex-perfilreset (1.6) bionic; urgency=medium
 
   * Fixed valencian translations
