@@ -7,30 +7,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-02 11:55+0200\n"
-"PO-Revision-Date: 2019-10-02 11:57+0200\n"
+"POT-Creation-Date: 2021-10-28 19:25+0200\n"
+"PO-Revision-Date: 2021-10-28 19:25+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/rsrc/lliurex-perfilreset.ui:27
 msgid "Reset profile"
 msgstr "Restablecer perfil"
 
-#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:88
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:89
 msgid "Resetting profile..."
 msgstr "Restableciendo perfil..."
 
-#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:156
-msgid "You must restart the session to end the process"
-msgstr "Debe reiniciar la sesión para finalizar el proceso"
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:161
+msgid "Close this window to restart the session and apply changes"
+msgstr "Cierre esta ventana para reiniciar la sesión y aplicar los cambios"
 
-#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:215
+#: ../lliurex-perfilreset.install/usr/share/lliurex-perfilreset/LliurexPerfilreset.py:220
 #, python-format
 msgid ""
 "%s open terminals have been detected.\n"
