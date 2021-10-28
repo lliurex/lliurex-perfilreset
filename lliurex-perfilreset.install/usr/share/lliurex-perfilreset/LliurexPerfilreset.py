@@ -54,6 +54,7 @@ class LliurexPerfilreset:
 	def __init__(self,args_dic):
 		
 		self.perfilreset_bin="/usr/share/lliurex-perfilreset/perfilreset_helper.py"
+		self.applied=False
 		
 		if args_dic["gui"]:
 			
@@ -105,7 +106,7 @@ class LliurexPerfilreset:
 	
 	def connect_signals(self):
 		
-		self.main_window.connect("destroy",Gtk.main_quit)
+		self.main_window.connect("destroy",self.close_button_clicked)
 		self.main_window.connect("delete_event",self.unable_quit)
 		self.close_button.connect("clicked",self.close_button_clicked)
 		self.reset_button.connect("clicked",self.reset_button_clicked)
@@ -119,11 +120,14 @@ class LliurexPerfilreset:
 	def close_button_clicked(self,widget=True):
 		
 		Gtk.main_quit()
+		if self.applied:
+			subprocess.run(["loginctl","terminate-user","%s"%os.environ['USER']])
 		sys.exit(0)
 		
 	#def check_changes
 	
 	def reset_button_clicked(self,widget):
+		self.applied=True
 
 		self.reset_button.set_sensitive(False)
 		self.lock_quit=True
@@ -153,7 +157,8 @@ class LliurexPerfilreset:
 		self.reveal.set_reveal_child(False)
 		self.reset_button.set_sensitive(True)
 		self.lock_quit=False
-		self.msg_label.set_text(_("You must restart the session to end the process"))
+		#self.msg_label.set_text(_("You must restart the session to end the process"))
+		self.msg_label.set_text(_("Close this window to restart the session and apply changes"))
 		self.msg_label.show()
 
 		return False
@@ -221,6 +226,8 @@ class LliurexPerfilreset:
 	def unable_quit(self,widget,event):
 
 		if self.lock_quit:
+			if self.applied:
+				subprocess.run(["loginctl","terminate-user","%s"%os.environ['USER']])
 			return True
 		else:	
 			return False
