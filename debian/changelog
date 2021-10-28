@@ -1,3 +1,10 @@
+lliurex-perfilreset (1.9) focal; urgency=medium
+
+  * Close session on window close after reset profile
+  * Fix wallpaper
+
+ -- Juanma1980 <juanma1980@gmail.com>  Thu, 28 Oct 2021 19:23:32 +0200
+
 lliurex-perfilreset (1.8) focal; urgency=medium
 
   * Focal release
