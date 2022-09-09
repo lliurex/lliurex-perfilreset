@@ -126,6 +126,10 @@ if os.path.isfile(color_scheme):
 #reset dconf
 subprocess.run(["dconf","reset","-f","/"])
 
+#reset kactivities
+if os.path.isdir(os.path.join(os.environ.get('HOME'),".local/share/kactivitymanagerd")):
+	shutil.rmtree(os.path.join(os.environ.get('HOME'),".local/share/kactivitymanagerd"))
+
 #Quit plasmashell
 #subprocess.run(["/usr/bin/kquitapp5","plasmashell"])
 #restart plasma
