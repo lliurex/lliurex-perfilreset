@@ -1,3 +1,9 @@
+lliurex-perfilreset (1.10) lliurex22; urgency=medium
+
+  * Remove all kactivitymanagerd related info
+
+ -- Juanma1980 <juanma1980@gmail.com>  Fri, 09 Sep 2022 12:21:36 +0200
+
 lliurex-perfilreset (1.9) focal; urgency=medium
 
   * Close session on window close after reset profile
