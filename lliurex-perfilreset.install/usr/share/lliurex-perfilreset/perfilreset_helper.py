@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 
 import sys
+import dbus
 import os
 import os.path
 import shutil
@@ -18,9 +19,26 @@ def _debug(msg):
 		print("dbg: %s"%msg)
 
 def restore_wallpaper():
-	#Restore wallpaper
-	cmd=["qdbus","org.kde.plasmashell","/PlasmaShell","org.kde.PlasmaShell.evaluateScript","'var allDesktops = desktops();print (allDesktops);for (i=0;i<allDesktops.length;i++) {d = allDesktops[i];d.wallpaperPlugin = \"org.kde.image\";d.currentConfigGroup = Array(\"Wallpaper\", \"org.kde.image\", \"General\");d.writeConfig(\"Image\", \"file:///usr/share/wallpapers/lliurex-aula/contents/images/1920x1080.jpg\")}'"]
-	subprocess.run(cmd)
+	imgFile="/usr/share/wallpapers/lliurex-aula/contents/images/1920x1080.jpg"
+	plugin='org.kde.image'
+	jscript = """
+	var allDesktops = desktops();
+	print (allDesktops);
+	for (i=0;i<allDesktops.length;i++) {
+		d = allDesktops[i];
+		d.wallpaperPlugin = "%s";
+		d.currentConfigGroup = Array("Wallpaper", "%s", "General");
+		d.writeConfig("Image", "%s")
+	}
+	"""
+	bus = dbus.SessionBus()
+	try:
+		plasma = dbus.Interface(bus.get_object(
+			'org.kde.plasmashell', '/PlasmaShell'), dbus_interface='org.kde.PlasmaShell')
+		plasma.evaluateScript(jscript % (plugin, plugin, imgFile))
+	except:
+		print("plasmashell not running")
+#def restore_wallpaper
 
 def _copy_tree(path,dst):
 	_debug("Read %s"%path)
@@ -84,8 +102,9 @@ def copy_skel_files():
 		pass
 
 ###MAIN
-
+#reset wallpaper
 restore_wallpaper()
+
 #Quit plasmashell
 #subprocess.run(["/usr/bin/kquitapp5","plasmashell"])
 
@@ -129,6 +148,7 @@ subprocess.run(["dconf","reset","-f","/"])
 #reset kactivities
 if os.path.isdir(os.path.join(os.environ.get('HOME'),".local/share/kactivitymanagerd")):
 	shutil.rmtree(os.path.join(os.environ.get('HOME'),".local/share/kactivitymanagerd"))
+
 
 #Quit plasmashell
 #subprocess.run(["/usr/bin/kquitapp5","plasmashell"])
