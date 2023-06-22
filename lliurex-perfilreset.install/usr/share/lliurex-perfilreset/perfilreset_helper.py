@@ -154,5 +154,5 @@ if os.path.isdir(os.path.join(os.environ.get('HOME'),".local/share/kactivitymana
 #subprocess.run(["/usr/bin/kquitapp5","plasmashell"])
 #restart plasma
 #subprocess.run(["/usr/bin/kstart5","plasmashell"])
-time.sleep(60)
+#time.sleep(60)
 
