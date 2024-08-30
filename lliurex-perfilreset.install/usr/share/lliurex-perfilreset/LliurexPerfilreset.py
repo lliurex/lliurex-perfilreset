@@ -121,8 +121,7 @@ class LliurexPerfilreset:
 		
 		Gtk.main_quit()
 		if self.applied:
-			cmd='dbus-send --print-reply --dest=org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout int32:0 int32:0 int32:0'
-			os.system(cmd)
+			subprocess.run(["loginctl","terminate-user","%s"%os.environ['USER']])
 		sys.exit(0)
 		
 	#def check_changes
